@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="AnchorPane" prefHeight="1000.0" prefWidth="600.0" style="-fx-background-color: #090843;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MockupRegisterScreenController">
+   <children>
+      <Pane fx:id="TitlePane" layoutX="-1.0" layoutY="-1.0" prefHeight="253.0" prefWidth="603.0">
+         <children>
+            <Label layoutX="187.0" layoutY="45.0" text="Opnames" textFill="WHITE">
+               <font>
+                  <Font size="54.0" />
+               </font>
+            </Label>
+            <Separator layoutX="-2.0" layoutY="155.0" prefHeight="7.0" prefWidth="608.0" />
+            <Label layoutX="270.0" layoutY="171.0" text="Nieuw" textFill="WHITE">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="503.0" layoutY="53.0" text="&gt;" textFill="WHITE">
+               <font>
+                  <Font size="43.0" />
+               </font>
+            </Label>
+            <Label layoutX="469.0" layoutY="96.0" text="Volgende" textFill="WHITE">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="13.0" layoutY="222.0" prefHeight="107.0" prefWidth="579.0" style="-fx-background-color: #0B0A4D;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0a4f8f" height="97.0" layoutX="6.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="96.0" />
+            <Label layoutX="25.0" layoutY="20.0" text="24/9&#10;2021" textFill="#24da86">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="60.0" fitWidth="107.0" layoutX="120.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Pictures/Saved%20Pictures/Play-Button-Transparent-PNG-450x450.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="522.0" layoutY="68.0" text="2:37" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ProgressBar layoutX="208.0" layoutY="42.0" prefHeight="24.0" prefWidth="345.0" progress="0.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="13.0" layoutY="345.0" prefHeight="107.0" prefWidth="579.0" style="-fx-background-color: #0B0A4D;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0a4f8f" height="97.0" layoutX="6.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="96.0" />
+            <Label layoutX="25.0" layoutY="20.0" text="23/9&#10;2021" textFill="#24da86">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="522.0" layoutY="68.0" text="5:43" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="128.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Pictures/Saved%20Pictures/pause-xxl.png" />
+               </image>
+            </ImageView>
+            <ProgressBar layoutX="207.0" layoutY="42.0" prefHeight="24.0" prefWidth="345.0" progress="0.22" />
+         </children>
+      </Pane>
+      <Pane layoutX="13.0" layoutY="468.0" prefHeight="107.0" prefWidth="579.0" style="-fx-background-color: #0B0A4D;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0a4f8f" height="97.0" layoutX="6.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="96.0" />
+            <Label layoutX="25.0" layoutY="20.0" text="22/9&#10;2021" textFill="#24da86">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="60.0" fitWidth="107.0" layoutX="120.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Pictures/Saved%20Pictures/Play-Button-Transparent-PNG-450x450.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="522.0" layoutY="68.0" text="1:57" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ProgressBar layoutX="205.0" layoutY="36.0" prefHeight="24.0" prefWidth="345.0" progress="0.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="13.0" layoutY="591.0" prefHeight="107.0" prefWidth="579.0" style="-fx-background-color: #0B0A4D;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0a4f8f" height="97.0" layoutX="6.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="96.0" />
+            <Label layoutX="25.0" layoutY="20.0" text="20/9&#10;2021" textFill="#24da86">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="60.0" fitWidth="107.0" layoutX="120.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Pictures/Saved%20Pictures/Play-Button-Transparent-PNG-450x450.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="522.0" layoutY="68.0" text="7:38" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ProgressBar layoutX="208.0" layoutY="42.0" prefHeight="24.0" prefWidth="345.0" progress="0.0" />
+         </children>
+      </Pane>
+      <Separator layoutX="1.0" layoutY="712.0" prefHeight="4.0" prefWidth="600.0" />
+      <Label layoutX="243.0" layoutY="714.0" text="Opgeslagen" textFill="WHITE">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Pane layoutX="13.0" layoutY="744.0" prefHeight="107.0" prefWidth="579.0" style="-fx-background-color: #0B0A4D;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0a4f8f" height="97.0" layoutX="6.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="96.0" />
+            <Label layoutX="25.0" layoutY="20.0" text="9/8&#10;2021" textFill="#24da86">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="60.0" fitWidth="107.0" layoutX="120.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Pictures/Saved%20Pictures/Play-Button-Transparent-PNG-450x450.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="522.0" layoutY="68.0" text="4:20" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ProgressBar layoutX="208.0" layoutY="42.0" prefHeight="24.0" prefWidth="345.0" progress="0.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="13.0" layoutY="867.0" prefHeight="107.0" prefWidth="579.0" style="-fx-background-color: #0B0A4D;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0a4f8f" height="97.0" layoutX="6.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" width="96.0" />
+            <Label layoutX="25.0" layoutY="20.0" text="23/6&#10;2021" textFill="#24da86">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="60.0" fitWidth="107.0" layoutX="120.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Pictures/Saved%20Pictures/Play-Button-Transparent-PNG-450x450.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="522.0" layoutY="68.0" text="10:54" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ProgressBar layoutX="208.0" layoutY="42.0" prefHeight="24.0" prefWidth="345.0" progress="0.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

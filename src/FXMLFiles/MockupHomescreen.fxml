@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="AnchorPane" prefHeight="1000.0" prefWidth="600.0" style="-fx-background-color: #090843;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MockupRegisterScreenController">
+   <children>
+      <Pane fx:id="pane1" layoutX="322.0" layoutY="194.0" prefHeight="297.0" prefWidth="288.0" style="-fx-background-color: #0B0A4D;">
+         <children>
+            <CubicCurve fx:id="batterijcurve" controlX1="-97.66665649414062" controlX2="133.99993896484375" controlY1="-99.00001525878906" controlY2="-99.00001525878906" endX="133.99993896484375" endY="58.666656494140625" fill="#0b0a4d" layoutX="122.0" layoutY="99.0" startX="-97.66665649414062" startY="58.666656494140625" stroke="#24da86" strokeWidth="5.0" />
+            <Label fx:id="batterijlabel" layoutX="98.0" layoutY="238.0" text="Batterij" textFill="#24da86">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="batterijprocent" layoutX="85.0" layoutY="113.0" text="100%" textFill="#24da86">
+               <font>
+                  <Font size="46.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label fx:id="title" layoutX="56.0" layoutY="47.0" text="Babbelbeestje van Lara" textFill="WHITE">
+         <font>
+            <Font name="Ink Free" size="48.0" />
+         </font>
+      </Label>
+      <Pane fx:id="pane2" layoutX="13.0" layoutY="194.0" prefHeight="297.0" prefWidth="288.0" style="-fx-background-color: #0B0A4D;">
+         <children>
+            <Label layoutX="1.0" layoutY="240.0" text="Opgenomen Gesprekken" textFill="#24da86">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="122.0" layoutY="26.0" text="4" textFill="#24da86">
+               <font>
+                  <Font size="79.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="149.0" text="Nieuwe gesprekken" textFill="#24da86">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane fx:id="pane21" layoutX="13.0" layoutY="504.0" prefHeight="297.0" prefWidth="288.0" style="-fx-background-color: #0B0A4D;">
+         <children>
+            <Label layoutX="85.0" layoutY="244.0" text="Voortgang" textFill="#24da86">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Line endX="-0.6666641235351562" endY="19.0" layoutX="72.0" layoutY="149.0" startX="-37.83331298828125" startY="59.0" stroke="#24da86" strokeWidth="3.0" />
+            <Line endX="-8.545326232910156" endY="6.878662109375" layoutX="82.0" layoutY="159.0" startX="15.999961853027344" startY="6.878662109375" stroke="#24da86" strokeWidth="3.0" />
+            <Line endX="-23.000045776367188" endY="39.33331298828125" layoutX="145.0" layoutY="74.0" startX="-45.500038146972656" startY="90.378662109375" stroke="#24da86" strokeWidth="3.0" />
+         </children>
+      </Pane>
+      <Line endX="71.99995422363281" endY="493.6666259765625" layoutX="82.0" layoutY="159.0" startX="51.33332824707031" startY="461.0" stroke="#24da86" strokeWidth="3.0" />
+      <Line endX="100.66670227050781" endY="437.0" layoutX="82.0" layoutY="159.0" startX="71.99995422363281" startY="493.6666259765625" stroke="#24da86" strokeWidth="3.0" />
+      <Line endX="137.9999542236328" endY="425.0" layoutX="82.0" layoutY="159.0" startX="102.78802490234375" startY="436.83331298828125" stroke="#24da86" strokeWidth="3.0" />
+      <Line endX="176.66671752929688" endY="458.33331298828125" layoutX="82.0" layoutY="159.0" startX="138.8333282470703" startY="425.33331298828125" stroke="#24da86" strokeWidth="3.0" />
+      <Pane fx:id="pane22" layoutX="322.0" layoutY="504.0" prefHeight="297.0" prefWidth="288.0" style="-fx-background-color: #0B0A4D;">
+         <children>
+            <Label layoutX="56.0" layoutY="240.0" text="Huidige Niveau" textFill="#24da86">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="87.0" layoutY="53.0" text="A1" textFill="#24da86">
+               <font>
+                  <Font size="79.0" />
+               </font>
+            </Label>
+            <Label layoutX="6.0" layoutY="184.0" text="A0 &gt; A1 &gt; A2 &gt; B1 &gt; B2" textFill="#24da86">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Hyperlink layoutX="500.0" layoutY="21.0" text="Afmelden">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Hyperlink>
+      <Button fx:id="LoginButton" layoutX="73.0" layoutY="842.0" mnemonicParsing="false" prefHeight="141.0" prefWidth="502.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%,  #1614B1 , #32cd32);" text="&#10;" textFill="WHITE">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Button>
+      <Label layoutX="157.0" layoutY="862.0" text="Overschakelen naar&#10;andere babbelbeestje&#10;" textFill="WHITE">
+         <font>
+            <Font size="37.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
