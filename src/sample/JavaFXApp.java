@@ -28,7 +28,7 @@ public class JavaFXApp extends Application {
         final double[] yOffset = new double[1];
 
 
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupKindToevoegen.fxml")));
+        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupOpnames.fxml")));
 
         Scene scene = new Scene(root);
         primaryStage.initStyle(StageStyle.TRANSPARENT);

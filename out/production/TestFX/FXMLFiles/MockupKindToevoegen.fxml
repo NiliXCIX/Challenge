@@ -39,18 +39,13 @@
       </Pane>
       <Pane fx:id="LoginPane" layoutX="9.0" layoutY="244.0" prefHeight="389.0" prefWidth="608.0">
          <children>
-            <TextField fx:id="voornaamtextfieldkind" layoutX="9.0" layoutY="-11.0" prefHeight="23.0" prefWidth="174.0" promptText="Voornaam">
+            <TextField fx:id="achternaamtextfieldkind" layoutX="210.0" layoutY="-10.0" prefHeight="30.0" prefWidth="151.0" promptText="Achternaam">
                <font>
-                  <Font size="19.0" />
+                  <Font size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="achternaamtextfieldkind" layoutX="210.0" layoutY="-10.0" prefHeight="36.0" prefWidth="185.0" promptText="Achternaam">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </TextField>
-            <DatePicker fx:id="datepickerkind" layoutX="9.0" layoutY="97.0" prefHeight="36.0" prefWidth="161.0" promptText="Geboortedatum" />
-            <ComboBox fx:id="comboboxkind" layoutX="210.0" layoutY="94.0" prefHeight="36.0" prefWidth="170.0" promptText="geslacht" />
+            <DatePicker fx:id="datepickerkind" layoutX="9.0" layoutY="97.0" prefHeight="30.0" prefWidth="151.0" promptText="Geboortedatum" />
+            <ComboBox fx:id="comboboxkind" layoutX="214.0" layoutY="97.0" prefHeight="30.0" prefWidth="151.0" promptText="geslacht" />
             <Label fx:id="voornaamkind" layoutX="9.0" layoutY="-53.0" text="Voornaam:" textFill="WHITE">
                <font>
                   <Font size="15.0" />
@@ -72,21 +67,26 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <TextField fx:id="achternaamtextfieldkind1" layoutX="102.0" layoutY="209.0" prefHeight="7.0" prefWidth="205.0" promptText="Gebruikersnaam">
+            <TextField fx:id="achternaamtextfieldkind1" layoutX="102.0" layoutY="209.0" prefHeight="30.0" prefWidth="187.0" promptText="Gebruikersnaam">
                <font>
-                  <Font size="19.0" />
+                  <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="achternaamtextfieldkind11" layoutX="102.0" layoutY="262.0" prefHeight="36.0" prefWidth="205.0" promptText="Wachtwoord">
+            <TextField fx:id="achternaamtextfieldkind11" layoutX="102.0" layoutY="262.0" prefHeight="35.0" prefWidth="189.0" promptText="Wachtwoord">
                <font>
-                  <Font size="19.0" />
+                  <Font size="15.0" />
                </font>
             </TextField>
-            <Button fx:id="aanmeldbutton" layoutX="115.0" layoutY="328.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="183.0" style="-fx-background-color: #24DA86;" text="Toevoegen" textFill="#131170">
+            <Button fx:id="aanmeldbutton" layoutX="115.0" layoutY="328.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="168.0" style="-fx-background-color: #24DA86;" text="Toevoegen" textFill="#131170">
                <font>
                   <Font size="22.0" />
                </font>
             </Button>
+            <TextField fx:id="achternaamtextfieldkind2" layoutX="11.0" layoutY="-11.0" prefHeight="30.0" prefWidth="151.0" promptText="Achternaam">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </TextField>
          </children>
       </Pane>
    </children>
