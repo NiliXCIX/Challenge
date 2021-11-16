@@ -16,12 +16,11 @@ public class JavaFXApp extends Application {
 
 
     public static void main(String[] args) {
-        System.out.println("sd");
         launch(args);
     }
 
     @Override
-    public void start (Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
 
 
         Parent root;
