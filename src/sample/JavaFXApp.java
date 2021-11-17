@@ -18,8 +18,7 @@ public class JavaFXApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    //YOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
-    // Alles goed???????????
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
