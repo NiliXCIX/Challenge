@@ -31,19 +31,19 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <Hyperlink fx:id="RegisterHyperlink" layoutX="306.0" layoutY="84.0" text="hier">
+            <Hyperlink fx:id="RegisterHyperlink" layoutX="306.0" layoutY="84.0" onAction="#goToRegistration" text="hier">
                <font>
                   <Font size="19.0" />
                </font>
             </Hyperlink>
-            <Hyperlink fx:id="PasswordHyperlink" layoutX="99.0" layoutY="123.0" text="Wachtwoord vergeten">
+            <Hyperlink fx:id="PasswordHyperlink" layoutX="99.0" layoutY="123.0" onAction="#goToWachtwoord" text="Wachtwoord vergeten">
                <font>
                   <Font size="19.0" />
                </font>
             </Hyperlink>
          </children>
       </Pane>
-      <Button fx:id="LoginButton" layoutX="90.0" layoutY="532.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="230.0" style="-fx-background-color: #24DA86;" text="Inloggen" textFill="#131170">
+      <Button fx:id="LoginButton" layoutX="90.0" layoutY="532.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="75.0" prefWidth="230.0" style="-fx-background-color: #24DA86;" text="Inloggen" textFill="#131170">
          <font>
             <Font size="33.0" />
          </font>

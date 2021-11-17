@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="400.0" style="-fx-background-color: #090843;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MockupRegisterScreenController">
+<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="400.0" style="-fx-background-color: #090843;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MockupRegistrationScreenController">
    <children>
       <Pane fx:id="TitlePane" layoutX="-1.0" layoutY="-1.0" prefHeight="253.0" prefWidth="603.0">
          <children>
@@ -35,12 +35,12 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="achternaamlabel" layoutX="208.0" layoutY="139.0" text="Email:" textFill="WHITE">
+            <Label fx:id="emaillabel" layoutX="208.0" layoutY="139.0" text="Email:" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="achternaamtextfield" layoutX="210.0" layoutY="169.0" prefHeight="31.0" prefWidth="173.0" promptText="Email" />
+            <TextField fx:id="emailtextfield" layoutX="210.0" layoutY="169.0" prefHeight="31.0" prefWidth="173.0" promptText="Email" />
             <TextField fx:id="voornaamtextfield" layoutX="10.0" layoutY="169.0" prefHeight="31.0" prefWidth="173.0" promptText="Voornaam + Achternaam" />
             <Label fx:id="geboortedatumlabel" layoutX="11.0" layoutY="228.0" text="Geboortedatum:" textFill="WHITE">
                <font>
@@ -58,14 +58,14 @@
          <children>
             <DatePicker fx:id="datepicker" layoutY="7.0" prefHeight="31.0" prefWidth="173.0" promptText="Geboortedatum" />
             <ComboBox fx:id="combobox" layoutX="201.0" layoutY="6.0" prefHeight="31.0" prefWidth="173.0" promptText="geslacht" />
-            <TextField fx:id="emailtextfield" layoutY="81.0" prefHeight="31.0" prefWidth="173.0" promptText="Gebruikersnaam" />
-            <Label fx:id="emaillabel" layoutX="-1.0" layoutY="53.0" text="Gebruikersnaam:" textFill="WHITE">
+            <TextField fx:id="gebruikersnaamtextfield" layoutY="81.0" prefHeight="31.0" prefWidth="173.0" promptText="Gebruikersnaam" />
+            <Label fx:id="gebruikersnaamlabel" layoutX="-1.0" layoutY="53.0" text="Gebruikersnaam:" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="achternaamtextfield1" layoutX="201.0" layoutY="79.0" prefHeight="31.0" prefWidth="173.0" promptText="Wachtwoord" />
-            <Label fx:id="achternaamlabel1" layoutX="196.0" layoutY="53.0" text="Wachtwoord:" textFill="WHITE">
+            <TextField fx:id="wachtwoordTextfield" layoutX="201.0" layoutY="79.0" prefHeight="31.0" prefWidth="173.0" promptText="Wachtwoord" />
+            <Label fx:id="wachtwoordlabel" layoutX="196.0" layoutY="53.0" text="Wachtwoord:" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -100,7 +100,7 @@
                </font>
             </Label>
             <ComboBox fx:id="comboboxkind" layoutX="201.0" layoutY="273.0" prefHeight="31.0" prefWidth="173.0" promptText="geslacht" />
-            <Button fx:id="aanmeldbutton" layoutX="101.0" layoutY="331.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="196.0" style="-fx-background-color: #24DA86;" text="Aanmelden" textFill="#131170">
+            <Button fx:id="aanmeldbutton" layoutX="101.0" layoutY="331.0" mnemonicParsing="false" onAction="#goToRegister" prefHeight="42.0" prefWidth="196.0" style="-fx-background-color: #24DA86;" text="Aanmelden" textFill="#131170">
                <font>
                   <Font size="23.0" />
                </font>

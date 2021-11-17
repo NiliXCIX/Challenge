@@ -9,22 +9,22 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="400.0" style="-fx-background-color: #090843;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MockupRegisterScreenController">
+<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="400.0" style="-fx-background-color: #090843;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MockupHomeScreenController">
    <children>
       <Pane fx:id="pane22" layoutX="21.0" layoutY="353.0" prefHeight="160.0" prefWidth="157.0" style="-fx-background-color: #0B0A4D;">
          <children>
-            <Label layoutX="44.0" layoutY="128.0" text="Voortgang" textFill="#24da86">
+            <Label fx:id="voortgangLabel" layoutX="44.0" layoutY="128.0" text="Voortgang" textFill="#24da86">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Line endX="5.333339691162109" endY="-2.33331298828125" layoutX="24.0" layoutY="98.0" startX="-3.166656494140625" startY="12.999969482421875" stroke="#24da86" />
-            <Line endX="4.333339691162109" endY="-8.666656494140625" layoutX="34.0" layoutY="108.0" startX="-3.9595603942871094" startY="-13.0404052734375" stroke="#24da86" />
-            <Line endX="10.666664123535156" endY="-17.33331298828125" layoutX="34.0" layoutY="108.0" startX="5.040447235107422" startY="-7.95953369140625" stroke="#24da86" />
-            <Line endX="11.373771667480469" endY="-18.040435791015625" layoutX="34.0" layoutY="108.0" startX="17.666664123535156" startY="-38.333343505859375" stroke="#24da86" />
-            <Line endX="18.37377166748047" endY="-39.04046630859375" layoutX="34.0" layoutY="108.0" startX="22.666664123535156" startY="-28.0" stroke="#24da86" />
-            <Line endX="20.52021026611328" endY="-27.292877197265625" layoutX="36.0" layoutY="108.0" startX="44.666664123535156" startY="-28.0" stroke="#24da86" />
-            <Line endX="47.33332061767578" endY="40.0" layoutX="56.0" layoutY="9.0" startX="36.37377166748047" startY="50.29290771484375" stroke="#24da86" />
+            <Line fx:id="line1" endX="5.333339691162109" endY="-2.33331298828125" layoutX="24.0" layoutY="98.0" startX="-3.166656494140625" startY="12.999969482421875" stroke="#24da86" />
+            <Line fx:id="line2" endX="4.333339691162109" endY="-8.666656494140625" layoutX="34.0" layoutY="108.0" startX="-3.9595603942871094" startY="-13.0404052734375" stroke="#24da86" />
+            <Line fx:id="line3" endX="10.666664123535156" endY="-17.33331298828125" layoutX="34.0" layoutY="108.0" startX="5.040447235107422" startY="-7.95953369140625" stroke="#24da86" />
+            <Line fx:id="line4" endX="11.373771667480469" endY="-18.040435791015625" layoutX="34.0" layoutY="108.0" startX="17.666664123535156" startY="-38.333343505859375" stroke="#24da86" />
+            <Line fx:id="line5" endX="18.37377166748047" endY="-39.04046630859375" layoutX="34.0" layoutY="108.0" startX="22.666664123535156" startY="-28.0" stroke="#24da86" />
+            <Line fx:id="line6" endX="20.52021026611328" endY="-27.292877197265625" layoutX="36.0" layoutY="108.0" startX="44.666664123535156" startY="-28.0" stroke="#24da86" />
+            <Line fx:id="line7" endX="47.33332061767578" endY="40.0" layoutX="56.0" layoutY="9.0" startX="36.37377166748047" startY="50.29290771484375" stroke="#24da86" />
          </children>
       </Pane>
       <Pane fx:id="pane23" layoutX="221.0" layoutY="145.0" prefHeight="160.0" prefWidth="157.0" style="-fx-background-color: #0B0A4D;">
@@ -49,48 +49,49 @@
       </Label>
       <Pane fx:id="pane2" layoutX="21.0" layoutY="145.0" prefHeight="160.0" prefWidth="157.0" style="-fx-background-color: #0B0A4D;">
          <children>
-            <Label layoutX="8.0" layoutY="129.0" text="Opgenomen Gesprekken" textFill="#24da86" />
-            <Label layoutX="64.0" layoutY="27.0" text="4" textFill="#24da86">
+            <Label fx:id="gesprekkenLabel" layoutX="8.0" layoutY="129.0" text="Opgenomen Gesprekken" textFill="#24da86" />
+            <Label fx:id="aantalGesprekkenLabel" layoutX="64.0" layoutY="27.0" text="4" textFill="#24da86">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <Label layoutX="22.0" layoutY="89.0" text="Nieuwe gesprekken" textFill="#24da86" />
+            <Label fx:id="nieuweGesprekkenLabel" layoutX="22.0" layoutY="89.0" text="Nieuwe gesprekken" textFill="#24da86" />
+            <Button fx:id="opnamesButton" layoutX="-8.0" layoutY="-5.0" mnemonicParsing="false" onAction="#goToOpnames" opacity="0.0" prefHeight="163.0" prefWidth="168.0" />
          </children></Pane>
-      <Hyperlink layoutX="325.0" layoutY="14.0" text="Afmelden">
+      <Hyperlink fx:id="afmeldenLink" layoutX="325.0" layoutY="14.0" onAction="#goToRegister" text="Afmelden">
          <font>
             <Font size="13.0" />
          </font>
       </Hyperlink>
-      <Button fx:id="LoginButton" layoutX="94.0" layoutY="552.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="211.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%,  #1614B1 , #32cd32);" text="&#10;" textFill="WHITE">
+      <Button fx:id="schakelButton" layoutX="94.0" layoutY="552.0" mnemonicParsing="false" onAction="#goToToevoegen" prefHeight="75.0" prefWidth="211.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%,  #1614B1 , #32cd32);" text="&#10;" textFill="WHITE">
          <font>
             <Font size="35.0" />
          </font>
       </Button>
-      <Label layoutX="128.0" layoutY="569.0" text="Overschakelen naar&#10;andere babbelbeestje&#10;" textFill="WHITE">
+      <Label fx:id="buttonTekst" layoutX="128.0" layoutY="569.0" text="Overschakelen naar&#10;andere babbelbeestje&#10;" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
       <Pane fx:id="pane21" layoutX="221.0" layoutY="353.0" prefHeight="160.0" prefWidth="157.0" style="-fx-background-color: #0B0A4D;">
          <children>
-            <Label layoutX="58.0" layoutY="31.0" text="A1" textFill="#24da86">
+            <Label fx:id="huidigeNiveau" layoutX="58.0" layoutY="31.0" text="A1" textFill="#24da86">
                <font>
                   <Font size="33.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="95.0" text="A0 &gt; A1 &gt; A2 &gt; B1 &gt; B2" textFill="#24da86">
+            <Label fx:id="niveaus" layoutX="14.0" layoutY="95.0" text="A0 &gt; A1 &gt; A2 &gt; B1 &gt; B2" textFill="#24da86">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label layoutX="31.0" layoutY="126.0" text="Huidige niveau" textFill="#24da86">
+            <Label fx:id="niveauLabel" layoutX="31.0" layoutY="126.0" text="Huidige niveau" textFill="#24da86">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Line endX="0.6666641235351562" endY="106.0" layoutX="112.0" layoutY="307.0" startX="-9.626228332519531" startY="125.29290771484375" stroke="#24da86" />
+      <Line fx:id="line8" endX="0.6666641235351562" endY="106.0" layoutX="112.0" layoutY="307.0" startX="-9.626228332519531" startY="125.29290771484375" stroke="#24da86" />
    </children>
 </AnchorPane>

@@ -1,9 +1,19 @@
 package Controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+
+import java.io.IOException;
+import java.util.Objects;
 
 public class MockupRegistrationScreenController {
 
@@ -20,19 +30,31 @@ public class MockupRegistrationScreenController {
     private Label Registartielabel;
 
     @FXML
-    private Pane LoginPane;
-
-    @FXML
     private Separator ouderseperator;
 
     @FXML
     private Label ouderlabel;
 
     @FXML
+    private Label voornaamlabel;
+
+    @FXML
+    private Label emaillabel;
+
+    @FXML
+    private TextField emailtextfield;
+
+    @FXML
     private TextField voornaamtextfield;
 
     @FXML
-    private TextField achternaamtextfield;
+    private Label geboortedatumlabel;
+
+    @FXML
+    private Label geslachtlabel;
+
+    @FXML
+    private Pane LoginPane;
 
     @FXML
     private DatePicker datepicker;
@@ -41,22 +63,16 @@ public class MockupRegistrationScreenController {
     private ComboBox<?> combobox;
 
     @FXML
-    private Label voornaamlabel;
+    private TextField gebruikersnaamtextfield;
 
     @FXML
-    private Label geslachtlabel;
+    private Label gebruikersnaamlabel;
 
     @FXML
-    private Label geboortedatumlabel;
+    private TextField wachtwoordTextfield;
 
     @FXML
-    private Label achternaamlabel;
-
-    @FXML
-    private TextField emailtextfield;
-
-    @FXML
-    private Label emaillabel;
+    private Label wachtwoordlabel;
 
     @FXML
     private Separator kindseparator;
@@ -65,29 +81,36 @@ public class MockupRegistrationScreenController {
     private Label kindlabel;
 
     @FXML
+    private Label voornaamkind;
+
+    @FXML
+    private Label achternaamkind;
+
+    @FXML
     private TextField voornaamtextfieldkind;
 
     @FXML
     private TextField achternaamtextfieldkind;
 
     @FXML
+    private Label geboortedatumkind;
+
+    @FXML
     private DatePicker datepickerkind;
-
-    @FXML
-    private ComboBox<?> comboboxkind;
-
-    @FXML
-    private Label voornaamkind;
 
     @FXML
     private Label geslachtkind;
 
     @FXML
-    private Label geboortedatumkind;
-
-    @FXML
-    private Label achternaamkind;
+    private ComboBox<?> comboboxkind;
 
     @FXML
     private Button aanmeldbutton;
+
+    @FXML
+    void goToRegister(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupRegisterscreen.fxml")));
+        AnchorPane.getChildren().setAll(pane);
+    }
+
 }
