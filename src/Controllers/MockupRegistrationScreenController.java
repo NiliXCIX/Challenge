@@ -13,7 +13,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class MockupRegistrationScreenController {
 
@@ -60,7 +62,7 @@ public class MockupRegistrationScreenController {
     private DatePicker datepicker;
 
     @FXML
-    private ComboBox<?> combobox;
+    private ComboBox combobox;
 
     @FXML
     private TextField gebruikersnaamtextfield;

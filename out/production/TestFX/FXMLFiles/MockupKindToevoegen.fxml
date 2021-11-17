@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="400.0" style="-fx-background-color: #090843;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MockupRegisterScreenController">
+<AnchorPane fx:id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="400.0" style="-fx-background-color: #090843;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MockupKindToevoegenController">
    <children>
       <Pane fx:id="TitlePane" layoutX="-1.0" layoutY="-1.0" prefHeight="253.0" prefWidth="603.0">
          <children>
@@ -19,12 +19,12 @@
                   <Font name="Ink Free" size="48.0" />
                </font>
             </Label>
-            <Label layoutX="99.0" layoutY="110.0" text="Babbelbeestje toevoegen" textFill="WHITE">
+            <Label fx:id="subTitleLabel" layoutX="99.0" layoutY="110.0" text="Babbelbeestje toevoegen" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Separator fx:id="ouderseperator" layoutX="-27.0" layoutY="147.0" prefHeight="14.0" prefWidth="429.0" />
+            <Separator fx:id="kindseperator" layoutX="-27.0" layoutY="147.0" prefHeight="14.0" prefWidth="429.0" />
             <Label fx:id="kindlabel" layoutX="176.0" layoutY="164.0" text="Kind" textFill="WHITE">
                <font>
                   <Font size="18.0" />
@@ -37,7 +37,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="LoginPane" layoutX="9.0" layoutY="244.0" prefHeight="389.0" prefWidth="608.0">
+      <Pane fx:id="controlePane" layoutX="9.0" layoutY="249.0" prefHeight="384.0" prefWidth="396.0">
          <children>
             <TextField fx:id="achternaamtextfieldkind" layoutX="210.0" layoutY="-10.0" prefHeight="30.0" prefWidth="151.0" promptText="Achternaam">
                <font>
@@ -61,28 +61,28 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Separator layoutX="-15.0" layoutY="149.0" prefHeight="7.0" prefWidth="409.0" />
-            <Label layoutX="134.0" layoutY="165.0" text="Ter controle:" textFill="WHITE">
+            <Separator fx:id="controleSeparator" layoutX="-15.0" layoutY="149.0" prefHeight="7.0" prefWidth="409.0" />
+            <Label fx:id="controleLabel" layoutX="134.0" layoutY="165.0" text="Ter controle:" textFill="WHITE">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <TextField fx:id="achternaamtextfieldkind1" layoutX="102.0" layoutY="209.0" prefHeight="30.0" prefWidth="187.0" promptText="Gebruikersnaam">
+            <TextField fx:id="gebruikersnaamTextField" layoutX="102.0" layoutY="209.0" prefHeight="30.0" prefWidth="187.0" promptText="Gebruikersnaam">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="achternaamtextfieldkind11" layoutX="102.0" layoutY="262.0" prefHeight="35.0" prefWidth="189.0" promptText="Wachtwoord">
+            <TextField fx:id="wachtwoordTextField" layoutX="102.0" layoutY="262.0" prefHeight="35.0" prefWidth="189.0" promptText="Wachtwoord">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Button fx:id="aanmeldbutton" layoutX="115.0" layoutY="328.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="168.0" style="-fx-background-color: #24DA86;" text="Toevoegen" textFill="#131170">
+            <Button fx:id="Toevoegenbutton" layoutX="115.0" layoutY="328.0" mnemonicParsing="false" onAction="#goToHomeScreen" prefHeight="49.0" prefWidth="168.0" style="-fx-background-color: #24DA86;" text="Toevoegen" textFill="#131170">
                <font>
                   <Font size="22.0" />
                </font>
             </Button>
-            <TextField fx:id="achternaamtextfieldkind2" layoutX="11.0" layoutY="-11.0" prefHeight="30.0" prefWidth="151.0" promptText="Achternaam">
+            <TextField fx:id="voornaamTextfield" layoutX="11.0" layoutY="-11.0" prefHeight="30.0" prefWidth="151.0" promptText="Voornaam">
                <font>
                   <Font size="13.0" />
                </font>
