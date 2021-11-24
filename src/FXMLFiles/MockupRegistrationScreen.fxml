@@ -41,7 +41,7 @@
                </font>
             </Label>
             <TextField fx:id="emailtextfield" layoutX="210.0" layoutY="169.0" prefHeight="31.0" prefWidth="173.0" promptText="Email" />
-            <TextField fx:id="voornaamtextfield" layoutX="10.0" layoutY="169.0" prefHeight="31.0" prefWidth="173.0" promptText="Voornaam + Achternaam" />
+            <TextField fx:id="voornaamtextfield" layoutX="10.0" layoutY="169.0" prefHeight="31.0" prefWidth="87.0" promptText="Voornaam" />
             <Label fx:id="geboortedatumlabel" layoutX="11.0" layoutY="228.0" text="Geboortedatum:" textFill="WHITE">
                <font>
                   <Font size="15.0" />
@@ -52,6 +52,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <TextField fx:id="Achternaamtextfield" layoutX="98.0" layoutY="169.0" prefHeight="31.0" prefWidth="87.0" promptText="Achternaam" />
          </children>
       </Pane>
       <Pane fx:id="LoginPane" layoutX="9.0" layoutY="240.0" prefHeight="389.0" prefWidth="409.0">

@@ -90,6 +90,11 @@
                   <Font size="14.0" />
                </font>
             </Label>
+            <Button fx:id="ButtonA0" layoutX="5.0" layoutY="92.0" mnemonicParsing="false" onAction="#ChangeA0" opacity="0.0" prefHeight="26.0" prefWidth="32.0" text="Button" />
+            <Button fx:id="ButtonA1" layoutX="38.0" layoutY="92.0" mnemonicParsing="false" onAction="#ChangeA1" opacity="0.0" prefHeight="26.0" prefWidth="32.0" text="Button" />
+            <Button fx:id="ButtonA2" layoutX="72.0" layoutY="93.0" mnemonicParsing="false" onAction="#ChangeA2" opacity="0.0" prefHeight="22.0" prefWidth="19.0" text="Button" />
+            <Button fx:id="ButtonB1" layoutX="100.0" layoutY="93.0" mnemonicParsing="false" onAction="#ChangeB1" opacity="0.0" prefHeight="22.0" prefWidth="19.0" text="Button" />
+            <Button fx:id="ButtonB2" layoutX="137.0" layoutY="89.0" mnemonicParsing="false" onAction="#ChangeB2" opacity="0.0" prefHeight="26.0" prefWidth="19.0" text="Button" />
          </children>
       </Pane>
       <Line fx:id="line8" endX="0.6666641235351562" endY="106.0" layoutX="112.0" layoutY="307.0" startX="-9.626228332519531" startY="125.29290771484375" stroke="#24da86" />

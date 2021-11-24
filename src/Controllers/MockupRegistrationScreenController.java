@@ -56,13 +56,16 @@ public class MockupRegistrationScreenController {
     private Label geslachtlabel;
 
     @FXML
+    private TextField Achternaamtextfield;
+
+    @FXML
     private Pane LoginPane;
 
     @FXML
     private DatePicker datepicker;
 
     @FXML
-    private ComboBox combobox;
+    private ComboBox combobox = new ComboBox();
 
     @FXML
     private TextField gebruikersnaamtextfield;
@@ -90,6 +93,7 @@ public class MockupRegistrationScreenController {
 
     @FXML
     private TextField voornaamtextfieldkind;
+    private static String voornaam;
 
     @FXML
     private TextField achternaamtextfieldkind;
@@ -104,10 +108,22 @@ public class MockupRegistrationScreenController {
     private Label geslachtkind;
 
     @FXML
-    private ComboBox<?> comboboxkind;
+    private ComboBox comboboxkind = new ComboBox();
 
     @FXML
     private Button aanmeldbutton;
+
+    @FXML
+    public void initialize() {
+        combobox.getItems().removeAll(combobox.getItems());
+        combobox.getItems().addAll("Man", "Vrouw");
+        combobox.getSelectionModel().select("Geslacht");
+
+        comboboxkind.getItems().removeAll(comboboxkind.getItems());
+        comboboxkind.getItems().addAll("Man", "Vrouw");
+        comboboxkind.getSelectionModel().select("Geslacht");
+    }
+
 
     @FXML
     void goToRegister(ActionEvent event) throws IOException {

@@ -13,7 +13,7 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 import java.util.Objects;
 
-public class MockupRegisterScreenController {
+public class MockupRegisterScreenController{
 
     @FXML
     private AnchorPane AnchorPane;
@@ -44,6 +44,7 @@ public class MockupRegisterScreenController {
 
     @FXML
     private TextField UsernameTextfield;
+
 
     @FXML
     void goToHome(ActionEvent event)throws IOException {

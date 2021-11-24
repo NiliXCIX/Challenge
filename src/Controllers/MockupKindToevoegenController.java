@@ -48,7 +48,7 @@ public class MockupKindToevoegenController {
     private DatePicker datepickerkind;
 
     @FXML
-    private ComboBox<?> comboboxkind;
+    private ComboBox comboboxkind = new ComboBox();
 
     @FXML
     private Label voornaamkind;
@@ -76,6 +76,13 @@ public class MockupKindToevoegenController {
 
     @FXML
     private TextField voornaamTextfield;
+
+    @FXML
+    public void initialize() {
+        comboboxkind.getItems().removeAll(comboboxkind.getItems());
+        comboboxkind.getItems().addAll("Man", "Vrouw");
+        comboboxkind.getSelectionModel().select("Geslacht");
+    }
 
     @FXML
     void goToHomeScreen(ActionEvent event)throws IOException {

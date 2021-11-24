@@ -98,7 +98,52 @@ public class MockupHomeScreenController {
     private Label niveauLabel;
 
     @FXML
+    private Button ButtonA0;
+
+    @FXML
+    private Button ButtonA1;
+
+    @FXML
+    private Button ButtonA2;
+
+    @FXML
+    private Button ButtonB1;
+
+    @FXML
+    private Button ButtonB2;
+
+    @FXML
     private Line line8;
+
+    @FXML
+    void ChangeA0(ActionEvent event) {
+        huidigeNiveau.setText("A0");
+
+    }
+
+    @FXML
+    void ChangeA1(ActionEvent event) {
+        huidigeNiveau.setText("A1");
+
+    }
+
+    @FXML
+    void ChangeA2(ActionEvent event) {
+        huidigeNiveau.setText("A2");
+
+    }
+
+    @FXML
+    void ChangeB1(ActionEvent event) {
+        huidigeNiveau.setText("B1");
+
+    }
+
+    @FXML
+    void ChangeB2(ActionEvent event) {
+        huidigeNiveau.setText("B2");
+
+    }
 
     @FXML
     void goToOpnames(ActionEvent event) throws IOException {
