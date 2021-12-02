@@ -10,7 +10,7 @@ import javafx.stage.StageStyle;
 
 import java.util.Objects;
 
-
+//Hoi Hidde
 public class JavaFXApp extends Application {
 
 
