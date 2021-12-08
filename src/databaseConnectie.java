@@ -1,8 +1,11 @@
+import com.mysql.cj.x.protobuf.MysqlxCrud;
+
 import java.sql.*;
 
-public class databaseConnectie {
-    public static void main (String [] args){
+class databaseConnectie {
 
+    public static void main (String [] args){
+        PreparedStatement pst;
         try{
             Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root","1234");
 
@@ -10,18 +13,14 @@ public class databaseConnectie {
 
         ResultSet resultset = statement.executeQuery("select * from gebruiker");
 
-        while (resultset.next()) {
-            System.out.println(resultset.getString("gebruikercode"));
-            System.out.println(resultset.getString("geslacht"));
-            System.out.println(resultset.getString("emailadres"));
-            System.out.println(resultset.getString("voornaam"));
-            System.out.println(resultset.getString("achternaam"));
-            System.out.println(resultset.getString("gebruikersnaam"));
-            System.out.println(resultset.getString("wachtwoord"));
+        pst = connectionString.prepareStatement("insert into gebruiker(gebruikerscode,geslacht,emailadres,voornaam,achternaam,gebruikersnaam,wachtwoord)values(?,?,?,?,?,?,?)");
+        pst.executeUpdate();
 
-        }
+
+
         } catch (Exception e){
             e.printStackTrace();
         }
+
     }
 }

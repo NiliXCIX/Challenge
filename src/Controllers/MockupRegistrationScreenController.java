@@ -1,5 +1,6 @@
 package Controllers;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,10 +15,18 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.Objects;
+import java.util.Random;
 import java.util.ResourceBundle;
+import java.sql.*;
+import java.util.UUID;
 
 public class MockupRegistrationScreenController {
+
+    PreparedStatement pst;
 
     @FXML
     private AnchorPane AnchorPane;
@@ -127,8 +136,44 @@ public class MockupRegistrationScreenController {
 
     @FXML
     void goToRegister(ActionEvent event) throws IOException {
+        Random rand = new Random(); //instance of random class
+
+        int gebruikercode = rand.nextInt(1111);
+        ObservableList geslacht = combobox.getItems();
+        String email = emailtextfield.getText();
+        String voornaam = voornaamtextfield.getText();
+        String achternaam = Achternaamtextfield.getText();
+        String gebruikersnaam = gebruikersnaamtextfield.getText();
+        String wachtwoord = wachtwoordTextfield.getText();
+
+
+        try{
+            Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root","1234");
+            Statement statement = connectionString.createStatement();
+            ResultSet resultset = statement.executeQuery("select * from gebruiker");
+
+
+            pst = connectionString.prepareStatement("insert into gebruiker(geslacht,emailadres,voornaam,achternaam,gebruikersnaam,wachtwoord)values(?,?,?,?,?,?)");
+            pst.setString(1, String.valueOf(geslacht));
+            pst.setString(2,email);
+            pst.setString(3,voornaam);
+            pst.setString(4,achternaam);
+            pst.setString(5,gebruikersnaam);
+            pst.setString(6,wachtwoord);
+            pst.executeUpdate();
+
+
+
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
         AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupRegisterscreen.fxml")));
         AnchorPane.getChildren().setAll(pane);
     }
+
+
 
 }
