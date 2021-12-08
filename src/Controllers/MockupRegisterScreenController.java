@@ -53,21 +53,20 @@ public class MockupRegisterScreenController{
     private TextField UsernameTextfield;
 
 
+
     @FXML
     void goToHome(ActionEvent event)throws IOException {
 
         try{
             Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root","1234");
-
             Statement statement = connectionString.createStatement();
-
             ResultSet resultset = statement.executeQuery("select * from gebruiker");
-
 
             String gebruikersnaam = UsernameTextfield.getText();
             String wachtwoord = PasswordTextfield.getText();
             String gebruikersnaamdb;
             String wachtwoorddb;
+
             while (resultset.next()){
                 gebruikersnaamdb = resultset.getString("gebruikersnaam");
                 wachtwoorddb = resultset.getString("wachtwoord");
@@ -82,10 +81,6 @@ public class MockupRegisterScreenController{
         } catch (Exception e){
             e.printStackTrace();
         }
-
-
-
-
 }
 
     @FXML
@@ -98,6 +93,9 @@ public class MockupRegisterScreenController{
     void goToWachtwoord(ActionEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupWachtwoordScreen.fxml")));
         AnchorPane.getChildren().setAll(pane);
+    }
+    public String getname(){
+        return UsernameTextfield.getText();
     }
 
 }

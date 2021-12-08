@@ -18,6 +18,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -137,12 +138,16 @@ public class MockupRegistrationScreenController {
     @FXML
     void goToRegister(ActionEvent event) throws IOException {
 
-        ObservableList geslacht = combobox.getItems();
+        String geslacht = (String) combobox.getValue();
         String email = emailtextfield.getText();
         String voornaam = voornaamtextfield.getText();
         String achternaam = Achternaamtextfield.getText();
         String gebruikersnaam = gebruikersnaamtextfield.getText();
         String wachtwoord = wachtwoordTextfield.getText();
+        String voornaamkind1 = voornaamtextfieldkind.getText();
+        String achternaamkind1 = achternaamtextfieldkind.getText();
+        LocalDate geboortedatumkind1 = datepickerkind.getValue();
+        String geslachtkind1 = (String) comboboxkind.getValue();
 
 
         try{
@@ -151,13 +156,20 @@ public class MockupRegistrationScreenController {
             ResultSet resultset = statement.executeQuery("select * from gebruiker");
 
 
-            pst = connectionString.prepareStatement("insert into gebruiker(geslacht,emailadres,voornaam,achternaam,gebruikersnaam,wachtwoord)values(?,?,?,?,?,?)");
-            pst.setString(1, String.valueOf(geslacht));
+            pst = connectionString.prepareStatement("insert into gebruiker(geslacht,emailadres,voornaam,achternaam,gebruikersnaam,wachtwoord,voornaamkind1,achternaamkind1,geboortedatumkind1,geslachtkind1)values(?,?,?,?,?,?,?,?,?,?)");
+            pst.setString(1, geslacht);
             pst.setString(2,email);
             pst.setString(3,voornaam);
             pst.setString(4,achternaam);
             pst.setString(5,gebruikersnaam);
             pst.setString(6,wachtwoord);
+            pst.setString(7,voornaamkind1);
+            pst.setString(8,achternaamkind1);
+            pst.setString(9, String.valueOf(geboortedatumkind1));
+            pst.setString(10,geslachtkind1);
+
+
+
             pst.executeUpdate();
 
 
