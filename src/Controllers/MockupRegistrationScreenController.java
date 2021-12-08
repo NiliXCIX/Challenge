@@ -136,9 +136,7 @@ public class MockupRegistrationScreenController {
 
     @FXML
     void goToRegister(ActionEvent event) throws IOException {
-        Random rand = new Random(); //instance of random class
 
-        int gebruikercode = rand.nextInt(1111);
         ObservableList geslacht = combobox.getItems();
         String email = emailtextfield.getText();
         String voornaam = voornaamtextfield.getText();

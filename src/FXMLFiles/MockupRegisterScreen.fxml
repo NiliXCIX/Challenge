@@ -41,6 +41,7 @@
                   <Font size="19.0" />
                </font>
             </Hyperlink>
+            <Label fx:id="fout" layoutX="37.0" layoutY="210.0" opacity="0.0" prefHeight="75.0" prefWidth="377.0" text="Het ingevoerde gebruikersnaam en/of wachtwoord is verkeerd.&#10;                                       probeer opnieuw." textFill="RED" />
          </children>
       </Pane>
       <Button fx:id="LoginButton" layoutX="90.0" layoutY="532.0" mnemonicParsing="false" onAction="#goToHome" prefHeight="75.0" prefWidth="230.0" style="-fx-background-color: #24DA86;" text="Inloggen" textFill="#131170">

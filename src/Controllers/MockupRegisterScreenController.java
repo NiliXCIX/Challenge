@@ -11,6 +11,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Objects;
 
 public class MockupRegisterScreenController{
@@ -40,6 +44,9 @@ public class MockupRegisterScreenController{
     private Hyperlink PasswordHyperlink;
 
     @FXML
+    private Label fout;
+
+    @FXML
     private Button LoginButton;
 
     @FXML
@@ -48,9 +55,38 @@ public class MockupRegisterScreenController{
 
     @FXML
     void goToHome(ActionEvent event)throws IOException {
-        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupHomeScreen.fxml")));
-        AnchorPane.getChildren().setAll(pane);
-    }
+
+        try{
+            Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root","1234");
+
+            Statement statement = connectionString.createStatement();
+
+            ResultSet resultset = statement.executeQuery("select * from gebruiker");
+
+
+            String gebruikersnaam = UsernameTextfield.getText();
+            String wachtwoord = PasswordTextfield.getText();
+            String gebruikersnaamdb;
+            String wachtwoorddb;
+            while (resultset.next()){
+                gebruikersnaamdb = resultset.getString("gebruikersnaam");
+                wachtwoorddb = resultset.getString("wachtwoord");
+                if (gebruikersnaam.equals(gebruikersnaamdb) && wachtwoord.equals(wachtwoorddb)){
+                    AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupHomeScreen.fxml")));
+                    AnchorPane.getChildren().setAll(pane);
+                }
+                else{
+                    fout.setOpacity(1);
+                }
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+
+}
 
     @FXML
     void goToRegistration(ActionEvent event) throws IOException {
@@ -65,3 +101,4 @@ public class MockupRegisterScreenController{
     }
 
 }
+
