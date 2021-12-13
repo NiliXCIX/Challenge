@@ -12,10 +12,22 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
+import javax.sound.sampled.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
 public class OpdrachtScherm1 {
+
+    // to store current position
+    Long currentFrame;
+    Clip clip;
+
+    // current status of clip
+    String status;
+
+    AudioInputStream audioInputStream;
+    static String filePath;
 
     @FXML
     private AnchorPane AnchorPane;
@@ -77,6 +89,7 @@ public class OpdrachtScherm1 {
     @FXML
     private Label EerstInvullen;
 
+
     @FXML
     void Controleer(ActionEvent event) {
         String GegevenAntwoord = Antwoord.getText();
@@ -103,8 +116,16 @@ public class OpdrachtScherm1 {
     }
 
     @FXML
-    void Play(ActionEvent event) {
-
+    void Play(ActionEvent event){
+        try {
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audio/AUD-20211202-WA0006.wav"));
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioInputStream);
+        clip.start();
+    } catch(Exception ex) {
+        System.out.println("Error with playing sound.");
+        ex.printStackTrace();
+    }
     }
 
     @FXML

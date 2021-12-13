@@ -12,6 +12,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -111,6 +115,15 @@ public class OpdrachtScherm2 {
 
     @FXML
     void Play(ActionEvent event) {
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audio/AUD-20211202-WA0007.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch(Exception ex) {
+            System.out.println("Error with playing sound.");
+            ex.printStackTrace();
+        }
 
     }
 
