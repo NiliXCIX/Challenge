@@ -14,7 +14,7 @@ import javafx.scene.shape.Line;
 import java.io.IOException;
 import java.util.Objects;
 
-public class MockupHomeScreenController {
+public class MockupHomeScreenController extends MockupRegisterScreenController {
 
     @FXML
     private AnchorPane AnchorPane;
@@ -26,25 +26,10 @@ public class MockupHomeScreenController {
     private Label voortgangLabel;
 
     @FXML
-    private Line line1;
+    private Label IngevuldeOpdrachtenLabel;
 
     @FXML
-    private Line line2;
-
-    @FXML
-    private Line line3;
-
-    @FXML
-    private Line line4;
-
-    @FXML
-    private Line line5;
-
-    @FXML
-    private Line line6;
-
-    @FXML
-    private Line line7;
+    private Label AantalIngevuldeOpdrachten;
 
     @FXML
     private Pane pane23;
@@ -112,8 +97,6 @@ public class MockupHomeScreenController {
     @FXML
     private Button ButtonB2;
 
-    @FXML
-    private Line line8;
 
     @FXML
     void ChangeA0(ActionEvent event) {
@@ -147,7 +130,7 @@ public class MockupHomeScreenController {
 
     @FXML
     void goToOpnames(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupOpnames.fxml")));
+        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm1.fxml")));
         AnchorPane.getChildren().setAll(pane);
     }
 

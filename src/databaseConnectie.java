@@ -13,14 +13,26 @@ class databaseConnectie {
 
         ResultSet resultset = statement.executeQuery("select * from gebruiker");
 
-        pst = connectionString.prepareStatement("insert into gebruiker(gebruikerscode,geslacht,emailadres,voornaam,achternaam,gebruikersnaam,wachtwoord)values(?,?,?,?,?,?,?)");
-        pst.executeUpdate();
+
+            String naam = "Nilesh";
+            String naamdb;
+            while (resultset.next()){
+                naamdb = resultset.getString("voornaam");
+                if (naam.equals(naamdb)){
+                    System.out.println("yes");
+                }
+                else{
+                    System.out.println("no");
+                }
+
+            }
 
 
 
         } catch (Exception e){
             e.printStackTrace();
         }
+
 
     }
 }
