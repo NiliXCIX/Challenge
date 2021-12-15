@@ -163,6 +163,9 @@ public class MockupRegistrationScreenController {
             if (results.next()){
                 System.out.println("Naam bestaat al, account niet aangemaakt");
             }
+            else if(voornaam.equals("") || String.valueOf(geboortedatumkind1).equals("") || voornaamkind1.equals("") || achternaamkind1.equals("") || gebruikersnaam.equals("") || wachtwoord.equals("") || achternaam.equals("") || email.equals("")){
+                System.out.println("Vakken mogen niet leeg zijn");
+            }
             else {
                 pst = connectionString.prepareStatement("insert into gebruiker(geslacht,emailadres,voornaam,achternaam,gebruikersnaam,wachtwoord,voornaamkind1,achternaamkind1,geboortedatumkind1,geslachtkind1)values(?,?,?,?,?,?,?,?,?,?)");
                 pst.setString(1, geslacht);

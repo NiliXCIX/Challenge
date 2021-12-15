@@ -5,13 +5,12 @@ import java.sql.*;
 class databaseConnectie {
 
     public static void main (String [] args){
-        PreparedStatement pst;
         try{
             Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root","1234");
 
-        Statement statement = connectionString.createStatement();
+            Statement statement = connectionString.createStatement();
 
-        ResultSet resultset = statement.executeQuery("select * from gebruiker");
+            ResultSet resultset = statement.executeQuery("select * from gebruiker");
 
 
             String naam = "Nilesh";

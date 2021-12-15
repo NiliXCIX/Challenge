@@ -15,11 +15,14 @@ import javafx.scene.shape.Rectangle;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
 public class OpdrachtScherm2 {
+
+    private Clip clip = AudioSystem.getClip();
 
     @FXML
     private AnchorPane AnchorPane;
@@ -81,6 +84,9 @@ public class OpdrachtScherm2 {
     @FXML
     private Label EerstInvullen;
 
+    public OpdrachtScherm2() throws LineUnavailableException {
+    }
+
     @FXML
     void Controleer(ActionEvent event) {
         String GegevenAntwoord = Antwoord.getText();
@@ -98,6 +104,10 @@ public class OpdrachtScherm2 {
     @FXML
     void GoToNextQuestion(ActionEvent event) throws IOException {
         if (Correct.getOpacity() == 1) {
+            if (clip.isRunning()) {
+                clip.stop();
+                clip.close();
+            }
             AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm3.fxml")));
             AnchorPane.getChildren().setAll(pane);
         }
@@ -108,6 +118,10 @@ public class OpdrachtScherm2 {
 
     @FXML
     void GoToPreviousQuestion(ActionEvent event) throws IOException {
+        if (clip.isRunning()) {
+            clip.stop();
+            clip.close();
+        }
         AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm1.fxml")));
         AnchorPane.getChildren().setAll(pane);
 
@@ -116,8 +130,11 @@ public class OpdrachtScherm2 {
     @FXML
     void Play(ActionEvent event) {
         try {
+            if (clip.isRunning()) {
+                clip.stop();
+                clip.close();
+            }
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audio/AUD-20211202-WA0007.wav"));
-            Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
         } catch(Exception ex) {
@@ -129,6 +146,10 @@ public class OpdrachtScherm2 {
 
     @FXML
     void goToHome(ActionEvent event) throws IOException {
+        if (clip.isRunning()) {
+            clip.stop();
+            clip.close();
+        }
         AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupHomeScreen.fxml")));
         AnchorPane.getChildren().setAll(pane);
 
