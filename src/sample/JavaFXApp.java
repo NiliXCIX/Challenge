@@ -10,7 +10,7 @@ import javafx.stage.StageStyle;
 
 import java.util.Objects;
 
-//Hoi Hidde
+
 public class JavaFXApp extends Application {
 
 
@@ -47,9 +47,10 @@ public class JavaFXApp extends Application {
             primaryStage.setY(event.getScreenY() - yOffset[0]);
         });
 
-        primaryStage.setTitle("Kumbaya");
-        primaryStage.show();
+        
 
+        primaryStage.setTitle("Babbelbeestje");
+        primaryStage.show();
 
     }
 }

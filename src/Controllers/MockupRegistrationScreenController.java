@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
+import javax.xml.transform.Result;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -153,24 +154,33 @@ public class MockupRegistrationScreenController {
         try{
             Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root","1234");
             Statement statement = connectionString.createStatement();
+
+            PreparedStatement stmt2 = connectionString.prepareStatement("select * from gebruiker where gebruikersnaam = ?");
+            stmt2.setString(1, gebruikersnaam);
             ResultSet resultset = statement.executeQuery("select * from gebruiker");
 
+            ResultSet results = stmt2.executeQuery();
+            if (results.next()){
+                System.out.println("Naam bestaat al, account niet aangemaakt");
+            }
+            else if(voornaam.equals("") || String.valueOf(geboortedatumkind1).equals("") || voornaamkind1.equals("") || achternaamkind1.equals("") || gebruikersnaam.equals("") || wachtwoord.equals("") || achternaam.equals("") || email.equals("")){
+                System.out.println("Vakken mogen niet leeg zijn");
+            }
+            else {
+                pst = connectionString.prepareStatement("insert into gebruiker(geslacht,emailadres,voornaam,achternaam,gebruikersnaam,wachtwoord,voornaamkind1,achternaamkind1,geboortedatumkind1,geslachtkind1)values(?,?,?,?,?,?,?,?,?,?)");
+                pst.setString(1, geslacht);
+                pst.setString(2, email);
+                pst.setString(3, voornaam);
+                pst.setString(4, achternaam);
+                pst.setString(5, gebruikersnaam);
+                pst.setString(6, wachtwoord);
+                pst.setString(7, voornaamkind1);
+                pst.setString(8, achternaamkind1);
+                pst.setString(9, String.valueOf(geboortedatumkind1));
+                pst.setString(10, geslachtkind1);
 
-            pst = connectionString.prepareStatement("insert into gebruiker(geslacht,emailadres,voornaam,achternaam,gebruikersnaam,wachtwoord,voornaamkind1,achternaamkind1,geboortedatumkind1,geslachtkind1)values(?,?,?,?,?,?,?,?,?,?)");
-            pst.setString(1, geslacht);
-            pst.setString(2,email);
-            pst.setString(3,voornaam);
-            pst.setString(4,achternaam);
-            pst.setString(5,gebruikersnaam);
-            pst.setString(6,wachtwoord);
-            pst.setString(7,voornaamkind1);
-            pst.setString(8,achternaamkind1);
-            pst.setString(9, String.valueOf(geboortedatumkind1));
-            pst.setString(10,geslachtkind1);
-
-
-
-            pst.executeUpdate();
+                pst.executeUpdate();
+            }
 
 
 

@@ -22,13 +22,13 @@ public class OpdrachtScherm1 extends MockupHomeScreenController {
 
     // to store current position
     Long currentFrame;
-    Clip clip;
 
     // current status of clip
     String status;
 
     AudioInputStream audioInputStream;
     static String filePath;
+    private Clip clip = AudioSystem.getClip();
 
     @FXML
     private AnchorPane AnchorPane;
@@ -90,6 +90,9 @@ public class OpdrachtScherm1 extends MockupHomeScreenController {
     @FXML
     private Label EerstInvullen;
 
+    public OpdrachtScherm1() throws LineUnavailableException {
+    }
+
 
     @FXML
     void Controleer(ActionEvent event) {
@@ -109,6 +112,9 @@ public class OpdrachtScherm1 extends MockupHomeScreenController {
 
     @FXML
     void GoToNextQuestion(ActionEvent event) throws IOException {
+        if (clip.isRunning()) {
+            clip.stop();
+        }
         if (Correct.getOpacity() == 1) {
             AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm2.fxml")));
             AnchorPane.getChildren().setAll(pane);
@@ -122,8 +128,11 @@ public class OpdrachtScherm1 extends MockupHomeScreenController {
     @FXML
     void Play(ActionEvent event){
         try {
+            if (clip.isRunning()) {
+                clip.stop();
+                clip.close();
+            }
         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audio/AUD-20211202-WA0006.wav"));
-        Clip clip = AudioSystem.getClip();
         clip.open(audioInputStream);
         clip.start();
     } catch(Exception ex) {
@@ -134,6 +143,9 @@ public class OpdrachtScherm1 extends MockupHomeScreenController {
 
     @FXML
     void goToHome(ActionEvent event) throws IOException {
+        if (clip.isRunning()) {
+            clip.stop();
+        }
         AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupHomescreen.fxml")));
         AnchorPane.getChildren().setAll(pane);
     }
