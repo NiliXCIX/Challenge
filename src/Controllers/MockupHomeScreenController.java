@@ -1,5 +1,6 @@
 package Controllers;
 
+import Controllers.OpdrachtenA0.OpdrachtScherm1;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.CubicCurve;
-import javafx.scene.shape.Line;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -30,6 +30,9 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
 
     @FXML
     private Label AantalIngevuldeOpdrachten;
+
+    @FXML
+    private Label AantalOpdrachten;
 
     @FXML
     private Pane pane23;
@@ -54,9 +57,6 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
 
     @FXML
     private Label aantalGesprekkenLabel;
-
-    @FXML
-    private Label nieuweGesprekkenLabel;
 
     @FXML
     private Button opnamesButton;
@@ -97,41 +97,80 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
     @FXML
     private Button ButtonB2;
 
+    public static int GoedeAntwoordenA0 = 0;
+    public static int GoedeAntwoordenA1 = 0;
+    public static int GoedeAntwoordenA2 = 0;
+    public static int GoedeAntwoordenB1 = 0;
+    public static int GoedeAntwoordenB2 = 0;
+
+
 
     @FXML
     void ChangeA0(ActionEvent event) {
         huidigeNiveau.setText("A0");
+        aantalGesprekkenLabel.setText("3");
+        AantalOpdrachten.setText("/ 3");
+        AantalIngevuldeOpdrachten.setText(String.valueOf(GoedeAntwoordenA0));
 
     }
 
     @FXML
     void ChangeA1(ActionEvent event) {
         huidigeNiveau.setText("A1");
+        aantalGesprekkenLabel.setText("2");
+        AantalOpdrachten.setText("/ 2");
+        AantalIngevuldeOpdrachten.setText(""+GoedeAntwoordenA1);
 
     }
 
     @FXML
     void ChangeA2(ActionEvent event) {
         huidigeNiveau.setText("A2");
-
+        aantalGesprekkenLabel.setText("2");
+        AantalOpdrachten.setText("/ 2");
+        AantalIngevuldeOpdrachten.setText(""+GoedeAntwoordenA2);
     }
 
     @FXML
     void ChangeB1(ActionEvent event) {
         huidigeNiveau.setText("B1");
-
+        aantalGesprekkenLabel.setText("2");
+        AantalOpdrachten.setText("/ 2");
+        AantalIngevuldeOpdrachten.setText(""+GoedeAntwoordenB1);
     }
 
     @FXML
     void ChangeB2(ActionEvent event) {
         huidigeNiveau.setText("B2");
-
+        aantalGesprekkenLabel.setText("2");
+        AantalOpdrachten.setText("/ 2");
+        AantalIngevuldeOpdrachten.setText(""+GoedeAntwoordenB2);
     }
 
     @FXML
     void goToOpnames(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm1.fxml")));
-        AnchorPane.getChildren().setAll(pane);
+        String huidigniveau = huidigeNiveau.getText();
+        if (huidigniveau.equalsIgnoreCase("A0")) {
+            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm1.fxml")));
+            AnchorPane.getChildren().setAll(pane);
+        }
+//        if (huidigniveau.equalsIgnoreCase("A1")) {
+//            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm2.fxml")));
+//            AnchorPane.getChildren().setAll(pane);
+//        }
+//        if (huidigniveau.equalsIgnoreCase("A2")) {
+//            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm1.fxml")));
+//            AnchorPane.getChildren().setAll(pane);
+//        }
+//        if (huidigniveau.equalsIgnoreCase("B1")) {
+//            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm1.fxml")));
+//            AnchorPane.getChildren().setAll(pane);
+//        }
+//        if (huidigniveau.equalsIgnoreCase("B2")) {
+//            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm1.fxml")));
+//            AnchorPane.getChildren().setAll(pane);
+//        }
+
     }
 
 

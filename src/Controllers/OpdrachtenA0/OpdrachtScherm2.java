@@ -1,5 +1,6 @@
-package Controllers;
+package Controllers.OpdrachtenA0;
 
+import Controllers.MockupHomeScreenController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
-public class OpdrachtScherm2 {
+public class OpdrachtScherm2 extends MockupHomeScreenController {
 
     @FXML
     private AnchorPane AnchorPane;
@@ -93,6 +94,13 @@ public class OpdrachtScherm2 {
             Correct.setOpacity(0);
         }
 
+    }
+
+    @FXML
+    void Correct(ActionEvent event){
+        if (Correct.getOpacity() == 1){
+            GoedeAntwoordenA0 = 2;
+        }
     }
 
     @FXML

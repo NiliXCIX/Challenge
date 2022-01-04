@@ -22,7 +22,12 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label fx:id="AantalIngevuldeOpdrachten" layoutX="51.0" layoutY="46.0" text="0 / 3" textFill="#24da86">
+            <Label fx:id="AantalIngevuldeOpdrachten" layoutX="53.0" layoutY="46.0" text="0" textFill="#24da86">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="AantalOpdrachten" layoutX="70.0" layoutY="46.0" text="/ 3" textFill="#24da86">
                <font>
                   <Font size="23.0" />
                </font>
@@ -52,13 +57,12 @@
       <Pane fx:id="pane2" layoutX="21.0" layoutY="145.0" prefHeight="160.0" prefWidth="157.0" style="-fx-background-color: #0B0A4D;">
          <children>
             <Label fx:id="gesprekkenLabel" layoutX="42.0" layoutY="129.0" text="Opdrachten" textFill="#24da86" />
-            <Label fx:id="aantalGesprekkenLabel" layoutX="64.0" layoutY="27.0" text="3" textFill="#24da86">
+            <Label fx:id="aantalGesprekkenLabel" layoutX="63.0" layoutY="46.0" text="3" textFill="#24da86">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <Label fx:id="nieuweGesprekkenLabel" layoutX="22.0" layoutY="89.0" text="Nieuwe Opdrachten" textFill="#24da86" />
-            <Button fx:id="opnamesButton" layoutX="-44.0" mnemonicParsing="false" onAction="#goToOpnames" opacity="0.0" prefHeight="163.0" prefWidth="168.0" />
+            <Button fx:id="opnamesButton" layoutX="-5.0" layoutY="-1.0" mnemonicParsing="false" onAction="#goToOpnames" opacity="0.0" prefHeight="163.0" prefWidth="168.0" />
          </children></Pane>
       <Hyperlink fx:id="afmeldenLink" layoutX="325.0" layoutY="14.0" onAction="#goToRegister" text="Afmelden">
          <font>
@@ -77,7 +81,7 @@
       </Label>
       <Pane fx:id="pane21" layoutX="221.0" layoutY="353.0" prefHeight="160.0" prefWidth="157.0" style="-fx-background-color: #0B0A4D;">
          <children>
-            <Label fx:id="huidigeNiveau" layoutX="58.0" layoutY="31.0" text="A1" textFill="#24da86">
+            <Label fx:id="huidigeNiveau" layoutX="58.0" layoutY="31.0" text="A0" textFill="#24da86">
                <font>
                   <Font size="33.0" />
                </font>
