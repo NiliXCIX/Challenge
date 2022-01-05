@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="400.0" style="-fx-background-color: #090843;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.OpdrachtenA0.OpdrachtScherm2">
+<AnchorPane fx:id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="400.0" style="-fx-background-color: #090843;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.OpdrachtenB1.OpdrachtScherm2">
    <children>
       <Pane fx:id="TitlePane" layoutY="-14.0" prefHeight="153.0" prefWidth="406.0">
          <children>

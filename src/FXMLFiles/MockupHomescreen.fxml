@@ -27,7 +27,7 @@
                   <Font size="23.0" />
                </font>
             </Label>
-            <Label fx:id="AantalOpdrachten" layoutX="70.0" layoutY="46.0" text="/ 3" textFill="#24da86">
+            <Label fx:id="AantalOpdrachten" layoutX="70.0" layoutY="46.0" text="/ 2" textFill="#24da86">
                <font>
                   <Font size="23.0" />
                </font>
@@ -57,12 +57,12 @@
       <Pane fx:id="pane2" layoutX="21.0" layoutY="145.0" prefHeight="160.0" prefWidth="157.0" style="-fx-background-color: #0B0A4D;">
          <children>
             <Label fx:id="gesprekkenLabel" layoutX="42.0" layoutY="129.0" text="Opdrachten" textFill="#24da86" />
-            <Label fx:id="aantalGesprekkenLabel" layoutX="63.0" layoutY="46.0" text="3" textFill="#24da86">
+            <Label fx:id="aantalGesprekkenLabel" layoutX="63.0" layoutY="46.0" text="2" textFill="#24da86">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <Button fx:id="opnamesButton" layoutX="-5.0" layoutY="-1.0" mnemonicParsing="false" onAction="#goToOpnames" opacity="0.0" prefHeight="163.0" prefWidth="168.0" />
+            <Button fx:id="opnamesButton" layoutX="-12.0" layoutY="-18.0" mnemonicParsing="false" onAction="#goToOpnames" opacity="0.0" prefHeight="163.0" prefWidth="168.0" />
          </children></Pane>
       <Hyperlink fx:id="afmeldenLink" layoutX="325.0" layoutY="14.0" onAction="#goToRegister" text="Afmelden">
          <font>
@@ -81,12 +81,12 @@
       </Label>
       <Pane fx:id="pane21" layoutX="221.0" layoutY="353.0" prefHeight="160.0" prefWidth="157.0" style="-fx-background-color: #0B0A4D;">
          <children>
-            <Label fx:id="huidigeNiveau" layoutX="58.0" layoutY="31.0" text="A0" textFill="#24da86">
+            <Label fx:id="huidigeNiveau" layoutX="58.0" layoutY="31.0" text="A1" textFill="#24da86">
                <font>
                   <Font size="33.0" />
                </font>
             </Label>
-            <Label fx:id="niveaus" layoutX="14.0" layoutY="95.0" text="A0 &gt; A1 &gt; A2 &gt; B1 &gt; B2" textFill="#24da86">
+            <Label fx:id="niveaus" layoutX="25.0" layoutY="96.0" text="A1 &gt; A2 &gt; B1 &gt; B2" textFill="#24da86">
                <font>
                   <Font size="13.0" />
                </font>
@@ -96,11 +96,10 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="ButtonA0" layoutX="5.0" layoutY="92.0" mnemonicParsing="false" onAction="#ChangeA0" opacity="0.0" prefHeight="26.0" prefWidth="32.0" text="Button" />
-            <Button fx:id="ButtonA1" layoutX="38.0" layoutY="92.0" mnemonicParsing="false" onAction="#ChangeA1" opacity="0.0" prefHeight="26.0" prefWidth="32.0" text="Button" />
-            <Button fx:id="ButtonA2" layoutX="72.0" layoutY="93.0" mnemonicParsing="false" onAction="#ChangeA2" opacity="0.0" prefHeight="22.0" prefWidth="19.0" text="Button" />
-            <Button fx:id="ButtonB1" layoutX="100.0" layoutY="93.0" mnemonicParsing="false" onAction="#ChangeB1" opacity="0.0" prefHeight="22.0" prefWidth="19.0" text="Button" />
-            <Button fx:id="ButtonB2" layoutX="137.0" layoutY="89.0" mnemonicParsing="false" onAction="#ChangeB2" opacity="0.0" prefHeight="26.0" prefWidth="19.0" text="Button" />
+            <Button fx:id="ButtonA1" layoutX="15.0" layoutY="93.0" mnemonicParsing="false" onAction="#ChangeA1" opacity="0.0" prefHeight="26.0" prefWidth="32.0" text="Button" />
+            <Button fx:id="ButtonA2" layoutX="58.0" layoutY="93.0" mnemonicParsing="false" onAction="#ChangeA2" opacity="0.0" prefHeight="22.0" prefWidth="19.0" text="Button" />
+            <Button fx:id="ButtonB1" layoutX="85.0" layoutY="93.0" mnemonicParsing="false" onAction="#ChangeB1" opacity="0.0" prefHeight="22.0" prefWidth="19.0" text="Button" />
+            <Button fx:id="ButtonB2" layoutX="112.0" layoutY="93.0" mnemonicParsing="false" onAction="#ChangeB2" opacity="0.0" prefHeight="26.0" prefWidth="19.0" text="Button" />
          </children>
       </Pane>
    </children>

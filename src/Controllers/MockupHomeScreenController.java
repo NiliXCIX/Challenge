@@ -1,6 +1,5 @@
 package Controllers;
 
-import Controllers.OpdrachtenA0.OpdrachtScherm1;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -83,9 +82,6 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
     private Label niveauLabel;
 
     @FXML
-    private Button ButtonA0;
-
-    @FXML
     private Button ButtonA1;
 
     @FXML
@@ -97,7 +93,6 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
     @FXML
     private Button ButtonB2;
 
-    public static int GoedeAntwoordenA0 = 0;
     public static int GoedeAntwoordenA1 = 0;
     public static int GoedeAntwoordenA2 = 0;
     public static int GoedeAntwoordenB1 = 0;
@@ -105,14 +100,7 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
 
 
 
-    @FXML
-    void ChangeA0(ActionEvent event) {
-        huidigeNiveau.setText("A0");
-        aantalGesprekkenLabel.setText("3");
-        AantalOpdrachten.setText("/ 3");
-        AantalIngevuldeOpdrachten.setText(String.valueOf(GoedeAntwoordenA0));
 
-    }
 
     @FXML
     void ChangeA1(ActionEvent event) {
@@ -134,8 +122,8 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
     @FXML
     void ChangeB1(ActionEvent event) {
         huidigeNiveau.setText("B1");
-        aantalGesprekkenLabel.setText("2");
-        AantalOpdrachten.setText("/ 2");
+        aantalGesprekkenLabel.setText("3");
+        AantalOpdrachten.setText("/ 3");
         AantalIngevuldeOpdrachten.setText(""+GoedeAntwoordenB1);
     }
 
@@ -150,22 +138,18 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
     @FXML
     void goToOpnames(ActionEvent event) throws IOException {
         String huidigniveau = huidigeNiveau.getText();
-        if (huidigniveau.equalsIgnoreCase("A0")) {
+        if (huidigniveau.equalsIgnoreCase("A1")) {
+            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/Opdracht1A1.fxml")));
+            AnchorPane.getChildren().setAll(pane);
+        }
+        if (huidigniveau.equalsIgnoreCase("A2")) {
+            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/Opdracht1A2.fxml")));
+            AnchorPane.getChildren().setAll(pane);
+        }
+        if (huidigniveau.equalsIgnoreCase("B1")) {
             AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm1.fxml")));
             AnchorPane.getChildren().setAll(pane);
         }
-//        if (huidigniveau.equalsIgnoreCase("A1")) {
-//            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm2.fxml")));
-//            AnchorPane.getChildren().setAll(pane);
-//        }
-//        if (huidigniveau.equalsIgnoreCase("A2")) {
-//            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm1.fxml")));
-//            AnchorPane.getChildren().setAll(pane);
-//        }
-//        if (huidigniveau.equalsIgnoreCase("B1")) {
-//            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm1.fxml")));
-//            AnchorPane.getChildren().setAll(pane);
-//        }
 //        if (huidigniveau.equalsIgnoreCase("B2")) {
 //            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm1.fxml")));
 //            AnchorPane.getChildren().setAll(pane);
