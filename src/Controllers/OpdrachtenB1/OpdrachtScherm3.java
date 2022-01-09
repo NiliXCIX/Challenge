@@ -19,6 +19,7 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Objects;
 
 public class OpdrachtScherm3 extends MockupHomeScreenController {
@@ -94,19 +95,22 @@ public class OpdrachtScherm3 extends MockupHomeScreenController {
         if (GegevenAntwoord.equalsIgnoreCase("koos")){
             Correct.setOpacity(1);
             Fout.setOpacity(0);
+            try {
+                PrintWriter writer = new PrintWriter("B1.txt", "UTF-8");
+                writer.write("1");
+                writer.write("2");
+                writer.write("3");
+                writer.close();
+            }
+            catch (IOException e){
+
+            }
         }
         else{
             Fout.setOpacity(1);
             Correct.setOpacity(0);
         }
 
-    }
-
-    @FXML
-    void Correct(){
-        if (Correct.getOpacity() == 1){
-            GoedeAntwoordenB1 = 3;
-        }
     }
 
     @FXML

@@ -1,8 +1,5 @@
+import Controllers.OpdrachtenB1.OpdrachtScherm1;
+
 public class Controle {
-    static boolean Goed;
-    void Controle(int a){
-        if (a == 1){
-            Goed = true;
-        }
-    }
+
 }

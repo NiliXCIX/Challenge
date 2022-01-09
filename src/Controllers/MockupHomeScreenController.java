@@ -1,5 +1,6 @@
 package Controllers;
 
+import Controllers.OpdrachtenB1.OpdrachtScherm1;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.CubicCurve;
 
+import javax.sound.sampled.LineUnavailableException;
+import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -120,11 +123,20 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
     }
 
     @FXML
-    void ChangeB1(ActionEvent event) {
+    void ChangeB1(ActionEvent event) throws LineUnavailableException {
         huidigeNiveau.setText("B1");
         aantalGesprekkenLabel.setText("3");
         AantalOpdrachten.setText("/ 3");
-        AantalIngevuldeOpdrachten.setText(""+GoedeAntwoordenB1);
+        File B1 = new File("B1.txt");
+        if (B1.length() == 1){
+            AantalIngevuldeOpdrachten.setText("1");
+        }
+        if (B1.length() == 2){
+            AantalIngevuldeOpdrachten.setText("2");
+        }
+        if (B1.length() == 3){
+            AantalIngevuldeOpdrachten.setText("3");
+        }
     }
 
     @FXML

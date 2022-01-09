@@ -16,6 +16,8 @@ import javafx.scene.shape.Rectangle;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.Objects;
 
 public class OpdrachtScherm1 extends MockupHomeScreenController {
@@ -100,6 +102,14 @@ public class OpdrachtScherm1 extends MockupHomeScreenController {
         if (GegevenAntwoord.equalsIgnoreCase("dacht")){
             Correct.setOpacity(1);
             Fout.setOpacity(0);
+            try {
+                PrintWriter writer = new PrintWriter("B1.txt", "UTF-8");
+                writer.write("1");
+                writer.close();
+            }
+            catch (IOException e){
+
+            }
         }
         else{
             Fout.setOpacity(1);
@@ -107,6 +117,7 @@ public class OpdrachtScherm1 extends MockupHomeScreenController {
         }
 
     }
+
 
 
 
