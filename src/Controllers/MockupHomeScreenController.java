@@ -14,9 +14,11 @@ import javafx.scene.shape.CubicCurve;
 import javax.sound.sampled.LineUnavailableException;
 import java.io.File;
 import java.io.IOException;
+import java.sql.*;
 import java.util.Objects;
 
 public class MockupHomeScreenController extends MockupRegisterScreenController {
+    PreparedStatement pst;
 
     @FXML
     private AnchorPane AnchorPane;
@@ -96,15 +98,31 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
     @FXML
     private Button ButtonB2;
 
-    public static int GoedeAntwoordenA1 = 0;
-    public static int GoedeAntwoordenA2 = 0;
-    public static int GoedeAntwoordenB1 = 0;
-    public static int GoedeAntwoordenB2 = 0;
+    public int GoedeAntwoordenA1;
+    public int GoedeAntwoordenA2;
+    public int GoedeAntwoordenB1;
+    public int GoedeAntwoordenB2;
 
 
+    String gebruikersnaamdb;
+    String passworddb;
+
+    String loggedinuser = getname();
 
 
+    void connectDatabase() {
 
+        try {
+            Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root", "1234");
+            Statement statement = connectionString.createStatement();
+            pst = connectionString.prepareStatement("select gebruiker set B1 = 1 where gebruikersnaam = ?");
+            pst.setString(1,loggedinuser);
+            pst.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
     void ChangeA1(ActionEvent event) {
         huidigeNiveau.setText("A1");
@@ -123,20 +141,11 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
     }
 
     @FXML
-    void ChangeB1(ActionEvent event) throws LineUnavailableException {
+    void ChangeB1(ActionEvent event) {
         huidigeNiveau.setText("B1");
         aantalGesprekkenLabel.setText("3");
         AantalOpdrachten.setText("/ 3");
-        File B1 = new File("B1.txt");
-        if (B1.length() == 1){
-            AantalIngevuldeOpdrachten.setText("1");
-        }
-        if (B1.length() == 2){
-            AantalIngevuldeOpdrachten.setText("2");
-        }
-        if (B1.length() == 3){
-            AantalIngevuldeOpdrachten.setText("3");
-        }
+        AantalIngevuldeOpdrachten.setText(""+GoedeAntwoordenB1);
     }
 
     @FXML
