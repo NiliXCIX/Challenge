@@ -54,7 +54,6 @@ public class MockupRegisterScreenController{
     private TextField UsernameTextfield;
     public static String Username;
 
-
     @FXML
     void goToHome(ActionEvent event)throws IOException {
 

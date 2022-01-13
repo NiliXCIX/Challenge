@@ -113,9 +113,6 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
 
     @FXML
     void initialize(){
-        huidigeNiveau.setText("A1");
-        aantalGesprekkenLabel.setText("2");
-        AantalOpdrachten.setText("/ 2");
         try {
             Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root", "1234");
             Statement statement = connectionString.createStatement();
@@ -255,8 +252,30 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
 
     @FXML
     void goToToevoegen(ActionEvent event) throws IOException {
-    AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupKindToevoegen.fxml")));
-        AnchorPane.getChildren().setAll(pane);
-}
+
+        try {
+            Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root", "1234");
+            Statement statement = connectionString.createStatement();
+            ResultSet resultset = statement.executeQuery("select * from gebruiker");
+            while (resultset.next()) {
+                gebruikersnaamdb = resultset.getString("gebruikersnaam");
+                passworddb = resultset.getString("wachtwoord");
+            }
+            pst = connectionString.prepareStatement("update gebruiker set A1 = 0 where gebruikersnaam = ?");
+            pst.setString(1, loggedinuser);
+            pst.executeUpdate();
+            pst = connectionString.prepareStatement("update gebruiker set A2 = 0 where gebruikersnaam = ?");
+            pst.setString(1, loggedinuser);
+            pst.executeUpdate();
+            pst = connectionString.prepareStatement("update gebruiker set B1 = 0 where gebruikersnaam = ?");
+            pst.setString(1, loggedinuser);
+            pst.executeUpdate();
+            pst = connectionString.prepareStatement("update gebruiker set B2 = 0 where gebruikersnaam = ?");
+            pst.setString(1, loggedinuser);
+            pst.executeUpdate();
+        }
+        catch (Exception e){e.printStackTrace();}
+    initialize();
+    }
 
 }

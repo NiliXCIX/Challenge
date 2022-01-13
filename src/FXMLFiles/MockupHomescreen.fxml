@@ -69,11 +69,6 @@
             <Font size="13.0" />
          </font>
       </Hyperlink>
-      <Button fx:id="schakelButton" layoutX="94.0" layoutY="552.0" mnemonicParsing="false" onAction="#goToToevoegen" prefHeight="75.0" prefWidth="211.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%,  #1614B1 , #32cd32);" text="&#10;" textFill="WHITE">
-         <font>
-            <Font size="35.0" />
-         </font>
-      </Button>
       <Label fx:id="buttonTekst" layoutX="128.0" layoutY="569.0" text="Overschakelen naar&#10;andere babbelbeestje&#10;" textFill="WHITE">
          <font>
             <Font size="15.0" />
@@ -102,5 +97,10 @@
             <Button fx:id="ButtonB2" layoutX="112.0" layoutY="93.0" mnemonicParsing="false" onAction="#ChangeB2" opacity="0.0" prefHeight="26.0" prefWidth="19.0" text="Button" />
          </children>
       </Pane>
+      <Button fx:id="schakelButton" layoutX="94.0" layoutY="552.0" mnemonicParsing="false" onAction="#goToToevoegen" prefHeight="75.0" prefWidth="211.0" style="-fx-background-color: linear-gradient(from 25% 25% to 100% 100%,  #1614B1 , #32cd32);" text="Reset Opdrachten" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
