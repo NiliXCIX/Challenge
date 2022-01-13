@@ -1,5 +1,6 @@
 package Controllers.OpdrachtenA1;
 
+import Controllers.MockupHomeScreenController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,9 +20,12 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import java.io.File;
 import java.io.IOException;
+import java.sql.*;
 import java.util.Objects;
 
-public class Opdracht1A1 {
+public class Opdracht1A1 extends MockupHomeScreenController {
+
+    PreparedStatement pst;
 
     // to store current position
     Long currentFrame;
@@ -94,20 +98,48 @@ public class Opdracht1A1 {
     @FXML
     private ImageView Image;
 
+    String gebruikersnaamdb;
+    String passworddb;
+    String loggedinuser = getname();
+
     public Opdracht1A1() throws LineUnavailableException {
     }
 
     @FXML
     void Controleer(ActionEvent event) {
-        String GegevenAntwoord = Antwoord.getText();
-        if (GegevenAntwoord.equalsIgnoreCase("poetst")){
-            Correct.setOpacity(1);
-            Fout.setOpacity(0);
+        try {
+            Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root", "1234");
+            Statement statement = connectionString.createStatement();
+            ResultSet resultset = statement.executeQuery("select * from gebruiker");
+            while (resultset.next()) {
+                gebruikersnaamdb = resultset.getString("gebruikersnaam");
+                passworddb = resultset.getString("wachtwoord");
+            }
+
+
+            String GegevenAntwoord = Antwoord.getText();
+            if (GegevenAntwoord.equalsIgnoreCase("poetst")) {
+                Correct.setOpacity(1);
+                Fout.setOpacity(0);
+                EerstInvullen.setOpacity(0);
+                pst = connectionString.prepareStatement("update gebruiker set A1 = 1 where gebruikersnaam = ?");
+                pst.setString(1,loggedinuser);
+                pst.executeUpdate();
+            }
+            else{
+                Fout.setOpacity(1);
+                Correct.setOpacity(0);
+                EerstInvullen.setOpacity(0);
+            }
+
         }
-        else{
-            Fout.setOpacity(1);
-            Correct.setOpacity(0);
+        catch(Exception e){
+            e.printStackTrace();
         }
+
+
+
+
     }
 
     @FXML
@@ -121,6 +153,8 @@ public class Opdracht1A1 {
         }
         else{
             EerstInvullen.setOpacity(1);
+            Fout.setOpacity(0);
+            Correct.setOpacity(0);
         }
     }
 

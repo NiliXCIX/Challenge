@@ -20,9 +20,11 @@ import javax.sound.sampled.LineUnavailableException;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.*;
 import java.util.Objects;
 
 public class OpdrachtScherm2 extends MockupHomeScreenController {
+    PreparedStatement pst;
 
     private Clip clip = AudioSystem.getClip();
 
@@ -86,29 +88,45 @@ public class OpdrachtScherm2 extends MockupHomeScreenController {
     @FXML
     private Label EerstInvullen;
 
+    String gebruikersnaamdb;
+    String passworddb;
+    String loggedinuser = getname();
+
     public OpdrachtScherm2() throws LineUnavailableException {
     }
 
     @FXML
     void Controleer(ActionEvent event) {
-        String GegevenAntwoord = Antwoord.getText();
-        if (GegevenAntwoord.equalsIgnoreCase("hingen")){
-            Correct.setOpacity(1);
-            Fout.setOpacity(0);
-            try {
-                PrintWriter writer = new PrintWriter("B1.txt", "UTF-8");
-                writer.write("1");
-                writer.write("2");
-                writer.close();
+        try {
+            Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root", "1234");
+            Statement statement = connectionString.createStatement();
+            ResultSet resultset = statement.executeQuery("select * from gebruiker");
+            while (resultset.next()) {
+                gebruikersnaamdb = resultset.getString("gebruikersnaam");
+                passworddb = resultset.getString("wachtwoord");
             }
-            catch (IOException e){
 
+
+            String GegevenAntwoord = Antwoord.getText();
+            if (GegevenAntwoord.equalsIgnoreCase("hingen")) {
+                Correct.setOpacity(1);
+                Fout.setOpacity(0);
+                pst = connectionString.prepareStatement("update gebruiker set B1 = 2 where gebruikersnaam = ?");
+                pst.setString(1,loggedinuser);
+                pst.executeUpdate();
             }
+            else{
+                Fout.setOpacity(1);
+                Correct.setOpacity(0);
+            }
+
         }
-        else{
-            Fout.setOpacity(1);
-            Correct.setOpacity(0);
+        catch(Exception e){
+            e.printStackTrace();
         }
+
+
+
 
     }
 

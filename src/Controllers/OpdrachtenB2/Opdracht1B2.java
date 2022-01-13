@@ -1,14 +1,14 @@
-package Controllers.OpdrachtenB1;
+package Controllers.OpdrachtenB2;
 
 import Controllers.MockupHomeScreenController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Separator;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
@@ -19,14 +19,21 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.*;
 import java.util.Objects;
 
-public class OpdrachtScherm3 extends MockupHomeScreenController {
+public class Opdracht1B2 extends MockupHomeScreenController {
 
     PreparedStatement pst;
 
+    // to store current position
+    Long currentFrame;
+
+    // current status of clip
+    String status;
+
+    AudioInputStream audioInputStream;
+    static String filePath;
     private Clip clip = AudioSystem.getClip();
 
     @FXML
@@ -45,7 +52,7 @@ public class OpdrachtScherm3 extends MockupHomeScreenController {
     private Button homeButton;
 
     @FXML
-    private Label Vraag3Titel;
+    private Label Vraag1Titel;
 
     @FXML
     private Pane AudioPane;
@@ -66,16 +73,7 @@ public class OpdrachtScherm3 extends MockupHomeScreenController {
     private Label AntwoordLabel;
 
     @FXML
-    private Label Opdrachttext;
-
-    @FXML
-    private TextField Antwoord;
-
-    @FXML
     private Button ControleerButton;
-
-    @FXML
-    private Button VolgendeButton;
 
     @FXML
     private Label Correct;
@@ -84,16 +82,28 @@ public class OpdrachtScherm3 extends MockupHomeScreenController {
     private Label Fout;
 
     @FXML
-    private Button TerugButton;
+    private Label EerstInvullen;
 
     @FXML
-    private Label EerstInvullen;
+    private Button VolgendeButton;
+
+    @FXML
+    private Label vraag;
+
+    @FXML
+    private CheckBox A;
+
+    @FXML
+    private CheckBox C;
+
+    @FXML
+    private CheckBox B;
 
     String gebruikersnaamdb;
     String passworddb;
     String loggedinuser = getname();
 
-    public OpdrachtScherm3() throws LineUnavailableException {
+    public Opdracht1B2() throws LineUnavailableException {
     }
 
     @FXML
@@ -108,17 +118,18 @@ public class OpdrachtScherm3 extends MockupHomeScreenController {
             }
 
 
-            String GegevenAntwoord = Antwoord.getText();
-            if (GegevenAntwoord.equalsIgnoreCase("koos")) {
+            if (A.isSelected() && !B.isSelected() && !C.isSelected()) {
                 Correct.setOpacity(1);
                 Fout.setOpacity(0);
-                pst = connectionString.prepareStatement("update gebruiker set B1 = 3 where gebruikersnaam = ?");
+                EerstInvullen.setOpacity(0);
+                pst = connectionString.prepareStatement("update gebruiker set B2 = 1 where gebruikersnaam = ?");
                 pst.setString(1,loggedinuser);
                 pst.executeUpdate();
             }
             else{
                 Fout.setOpacity(1);
                 Correct.setOpacity(0);
+                EerstInvullen.setOpacity(0);
             }
 
         }
@@ -126,32 +137,25 @@ public class OpdrachtScherm3 extends MockupHomeScreenController {
             e.printStackTrace();
         }
 
+
+
+
     }
 
     @FXML
     void GoToNextQuestion(ActionEvent event) throws IOException {
+        if (clip.isRunning()) {
+            clip.stop();
+        }
         if (Correct.getOpacity() == 1) {
-            if (clip.isRunning()) {
-                clip.stop();
-                clip.close();
-            }
-            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupHomescreen.fxml")));
+            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/Opdracht2B2.fxml")));
             AnchorPane.getChildren().setAll(pane);
         }
         else{
             EerstInvullen.setOpacity(1);
+            Fout.setOpacity(0);
+            Correct.setOpacity(0);
         }
-    }
-
-    @FXML
-    void GoToPreviousQuestion(ActionEvent event) throws IOException {
-        if (clip.isRunning()) {
-            clip.stop();
-            clip.close();
-        }
-        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm2.fxml")));
-        AnchorPane.getChildren().setAll(pane);
-
     }
 
     @FXML
@@ -161,25 +165,23 @@ public class OpdrachtScherm3 extends MockupHomeScreenController {
                 clip.stop();
                 clip.close();
             }
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audio/AUD-20211202-WA0009.wav"));
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audio/Demo-1-B2.wav"));
             clip.open(audioInputStream);
             clip.start();
         } catch(Exception ex) {
             System.out.println("Error with playing sound.");
             ex.printStackTrace();
         }
-
     }
 
     @FXML
     void goToHome(ActionEvent event) throws IOException {
         if (clip.isRunning()) {
             clip.stop();
-            clip.close();
         }
-        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupHomeScreen.fxml")));
+        AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupHomescreen.fxml")));
         AnchorPane.getChildren().setAll(pane);
-
+    }
     }
 
-}
+

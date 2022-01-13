@@ -19,6 +19,7 @@ import java.util.Objects;
 
 public class MockupHomeScreenController extends MockupRegisterScreenController {
     PreparedStatement pst;
+    ResultSet rs = null;
 
     @FXML
     private AnchorPane AnchorPane;
@@ -110,25 +111,49 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
     String loggedinuser = getname();
 
 
-    void connectDatabase() {
-
+    @FXML
+    void initialize(){
+        huidigeNiveau.setText("A1");
+        aantalGesprekkenLabel.setText("2");
+        AantalOpdrachten.setText("/ 2");
         try {
             Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root", "1234");
             Statement statement = connectionString.createStatement();
-            pst = connectionString.prepareStatement("select gebruiker set B1 = 1 where gebruikersnaam = ?");
+            String sql = "SELECT A1 FROM gebruiker WHERE gebruikersnaam =?";
+            pst=connectionString.prepareStatement(sql);
             pst.setString(1,loggedinuser);
-            pst.executeUpdate();
 
+            rs = pst.executeQuery();
+            while (rs.next()) {
+
+                AantalIngevuldeOpdrachten.setText(rs.getString("A1"));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
+
     @FXML
     void ChangeA1(ActionEvent event) {
         huidigeNiveau.setText("A1");
         aantalGesprekkenLabel.setText("2");
         AantalOpdrachten.setText("/ 2");
-        AantalIngevuldeOpdrachten.setText(""+GoedeAntwoordenA1);
+        try {
+            Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root", "1234");
+            Statement statement = connectionString.createStatement();
+            String sql = "SELECT A1 FROM gebruiker WHERE gebruikersnaam =?";
+            pst=connectionString.prepareStatement(sql);
+            pst.setString(1,loggedinuser);
+
+            rs = pst.executeQuery();
+            while (rs.next()) {
+
+                AantalIngevuldeOpdrachten.setText(rs.getString("A1"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -137,7 +162,21 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
         huidigeNiveau.setText("A2");
         aantalGesprekkenLabel.setText("2");
         AantalOpdrachten.setText("/ 2");
-        AantalIngevuldeOpdrachten.setText(""+GoedeAntwoordenA2);
+        try {
+            Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root", "1234");
+            Statement statement = connectionString.createStatement();
+            String sql = "SELECT A2 FROM gebruiker WHERE gebruikersnaam =?";
+            pst=connectionString.prepareStatement(sql);
+            pst.setString(1,loggedinuser);
+
+            rs = pst.executeQuery();
+            while (rs.next()) {
+
+                AantalIngevuldeOpdrachten.setText(rs.getString("A2"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -145,7 +184,21 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
         huidigeNiveau.setText("B1");
         aantalGesprekkenLabel.setText("3");
         AantalOpdrachten.setText("/ 3");
-        AantalIngevuldeOpdrachten.setText(""+GoedeAntwoordenB1);
+        try {
+            Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root", "1234");
+            Statement statement = connectionString.createStatement();
+            String sql = "SELECT B1 FROM gebruiker WHERE gebruikersnaam =?";
+            pst=connectionString.prepareStatement(sql);
+            pst.setString(1,loggedinuser);
+
+            rs = pst.executeQuery();
+            while (rs.next()) {
+
+                AantalIngevuldeOpdrachten.setText(rs.getString("B1"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -153,7 +206,21 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
         huidigeNiveau.setText("B2");
         aantalGesprekkenLabel.setText("2");
         AantalOpdrachten.setText("/ 2");
-        AantalIngevuldeOpdrachten.setText(""+GoedeAntwoordenB2);
+        try {
+            Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root", "1234");
+            Statement statement = connectionString.createStatement();
+            String sql = "SELECT B2 FROM gebruiker WHERE gebruikersnaam =?";
+            pst=connectionString.prepareStatement(sql);
+            pst.setString(1,loggedinuser);
+
+            rs = pst.executeQuery();
+            while (rs.next()) {
+
+                AantalIngevuldeOpdrachten.setText(rs.getString("B2"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -171,10 +238,10 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
             AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm1.fxml")));
             AnchorPane.getChildren().setAll(pane);
         }
-//        if (huidigniveau.equalsIgnoreCase("B2")) {
-//            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/OpdrachtScherm1.fxml")));
-//            AnchorPane.getChildren().setAll(pane);
-//        }
+        if (huidigniveau.equalsIgnoreCase("B2")) {
+            AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/Opdracht1B2.fxml")));
+            AnchorPane.getChildren().setAll(pane);
+        }
 
     }
 

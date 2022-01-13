@@ -121,6 +121,7 @@ public class OpdrachtScherm1 extends MockupHomeScreenController {
             if (GegevenAntwoord.equalsIgnoreCase("dacht")) {
                 Correct.setOpacity(1);
                 Fout.setOpacity(0);
+                EerstInvullen.setOpacity(0);
                 pst = connectionString.prepareStatement("update gebruiker set B1 = 1 where gebruikersnaam = ?");
                 pst.setString(1,loggedinuser);
                 pst.executeUpdate();
@@ -128,6 +129,7 @@ public class OpdrachtScherm1 extends MockupHomeScreenController {
                 else{
                     Fout.setOpacity(1);
                     Correct.setOpacity(0);
+                    EerstInvullen.setOpacity(0);
                 }
 
         }
@@ -155,6 +157,8 @@ public class OpdrachtScherm1 extends MockupHomeScreenController {
         }
         else{
             EerstInvullen.setOpacity(1);
+            Fout.setOpacity(0);
+            Correct.setOpacity(0);
         }
     }
 
