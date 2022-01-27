@@ -122,8 +122,9 @@ public class MockupHomeScreenController extends MockupRegisterScreenController {
 
             rs = pst.executeQuery();
             while (rs.next()) {
-
-                AantalIngevuldeOpdrachten.setText(rs.getString("A1"));
+                if (AantalIngevuldeOpdrachten != null) {
+                    AantalIngevuldeOpdrachten.setText(rs.getString("A1"));
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

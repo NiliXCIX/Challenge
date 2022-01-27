@@ -142,11 +142,17 @@ public class Opdracht2A1 extends MockupHomeScreenController {
 
     }
     @FXML
-    void GoToNextQuestion(ActionEvent event) throws IOException {
+    void GoToNextQuestion(ActionEvent event) throws IOException, SQLException {
         if (clip.isRunning()) {
             clip.stop();
         }
-        if (Correct.getOpacity() == 1) {
+        Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root", "1234");
+        PreparedStatement stmt = connectionString.prepareStatement("select A1 from gebruiker where gebruikersnaam = ?");
+        stmt.setString(1, loggedinuser);
+        ResultSet results = stmt.executeQuery();
+        results.next();
+
+        if (results.getInt(1) >= 2) {
             AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupHomescreen.fxml")));
             AnchorPane.getChildren().setAll(pane);
         }

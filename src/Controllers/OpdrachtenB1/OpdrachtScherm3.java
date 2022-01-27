@@ -129,12 +129,18 @@ public class OpdrachtScherm3 extends MockupHomeScreenController {
     }
 
     @FXML
-    void GoToNextQuestion(ActionEvent event) throws IOException {
-        if (Correct.getOpacity() == 1) {
-            if (clip.isRunning()) {
-                clip.stop();
-                clip.close();
-            }
+    void GoToNextQuestion(ActionEvent event) throws IOException, SQLException {
+        if (clip.isRunning()) {
+            clip.stop();
+            clip.close();
+        }
+        Connection connectionString = DriverManager.getConnection("jdbc:mysql://localhost:3306/babbelbeestjedb", "root", "1234");
+        PreparedStatement stmt = connectionString.prepareStatement("select B1 from gebruiker where gebruikersnaam = ?");
+        stmt.setString(1, loggedinuser);
+        ResultSet results = stmt.executeQuery();
+        results.next();
+
+        if (results.getInt(1) >= 3) {
             AnchorPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/FXMLFiles/MockupHomescreen.fxml")));
             AnchorPane.getChildren().setAll(pane);
         }
